@@ -74,30 +74,38 @@
 
 
 let currentQuestionIndex = 0; 
-let score = 0; // Tracks the number of correct answers
+let score = 0; 
 
-// Array of quiz questions and their correct answers
+
 const questions = [
+{
+    question: 'is Joshua Deluvio a hero? (Yes or No)',
+        correctAnswer: 'No'
+        
+},
     {
-        question: 'What is 2 + 2?',
+        question: 'Duterte is the best president?(True or False)',
+        correctAnswer:  'False'
+},  
+    {
+    question: 'kung ang aso ay aso ang pusa ay kanino yan bakit naging isda diba?(True or False)',
+    correctAnswer:  'False'
+},
+    {
+        question: 'Is BBM the greatest pres? (Yes or No)',
+        correctAnswer: 'No'
+    },
+{
+        question: '3rd number of the pi (input number ex;123)',
         correctAnswer: '4'
-    },
+    },   {
+        question: 'payag kana(Oo or hinde)',
+        correctAnswer: 'Oo'
+},
     {
-        question: 'Duterte is the best president(true or false)',
-        correctAnswer: 'false'
-    },
-    {
-        question: 'Is BBM the greatest pres?',
-        correctAnswer: 'no'
-    },
-    {
-        question: '3rd number of the pi',
-        correctAnswer: '4'
-    },
-    {
-        question: 'Will you date Josh? yes or no',
-        correctAnswer: 'yes'
-    }
+        question: 'Will you date Josh? Yes or No',
+        correctAnswer: 'Yes'
+}
 ];
 
 function showQuestion() {
@@ -105,32 +113,32 @@ function showQuestion() {
         const currentQuestion = questions[currentQuestionIndex]; 
         const userAnswer = prompt(currentQuestion.question);
 
-        if (userAnswer.trim().toLowerCase() === currentQuestion.correctAnswer.toLowerCase()) {
+    if (userAnswer.trim().toLowerCase() === currentQuestion.correctAnswer.toLowerCase()) {
             score++;
             alert('Correct!'); 
-        } else {
+    } else {
             alert('Wrong answer.'); 
-        }
+    }
 
         currentQuestionIndex++;
         showQuestion(); 
     } else {
-        // Show the score and redirect
+        // score
         alert(`Your score is ${score} out of ${questions.length}.`);
         if (score === questions.length) {
-            // Perfect score redirect
+            // Perpek score 
             window.location.href = 'congratulations.html';
         } else {
-            // Not perfect score redirect
+            // hindi perpek
             window.location.href = 'try-again.html';
-        }
+    }
     }
 }
 
-// Function to start the quiz
+// Function para magstart
 function quizButton() {
     currentQuestionIndex = 0; 
-    score = 0; // Reset score for a new quiz
+    score = 0; 
     showQuestion();
 }
 
@@ -139,7 +147,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const retryButton = document.getElementById('retry-button');
         
         retryButton.addEventListener('click', () => {
-            // Button to redirect to index page
+            // Button to redirect to index page palag palag na to
             window.location.href = 'index.html';
         });
     }
